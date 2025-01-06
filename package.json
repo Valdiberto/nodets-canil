@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "homepage": "https://github.com/Valdiberto/nodets-canil#readme",
+  "engines": {
+    "node": "23.x"
+  },
   "bugs": {
     "url": "https://github.com/Valdiberto/nodets-canil/issues"
   },
@@ -15,6 +18,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "postinstall": "npm run build && copyfiles -u 1 src/**/*.mustache dist/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon -e ts,json,mustache src/server.ts"
   },
@@ -27,6 +33,7 @@
     "@types/express": "^5.0.0",
     "@types/mustache-express": "^1.2.5",
     "@types/node": "^22.10.5",
+    "copyfiles": "^2.4.1",
     "nodemon": "^3.1.9",
     "tslib": "^2.8.1"
   }
